@@ -17,10 +17,18 @@
     "
   >
     <p class="m-0 w-100">{{ todo.text }}</p>
-    <button class="btn btn-sm btn-outline-warning flex-shrink-1 mr-1">
+    <button
+      @click="$emit('updateTodoEvent', todo)"
+      class="btn btn-sm btn-outline-warning flex-shrink-1 mr-1"
+    >
       Update
     </button>
-    <button @click="$emit('deleteTodoEvent', todo)" class="btn btn-sm btn-outline-danger flex-shrink-1">X</button>
+    <button
+      @click="$emit('deleteTodoEvent', todo)"
+      class="btn btn-sm btn-outline-danger flex-shrink-1"
+    >
+      X
+    </button>
   </div>
 </template>
 

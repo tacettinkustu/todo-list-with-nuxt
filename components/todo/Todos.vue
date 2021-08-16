@@ -4,6 +4,7 @@
       v-for="todo in todos"
       :todo="todo"
       :key="todo._id"
+      @updateTodoEvent="$emit('updateTodoEvent', $event)"
       @deleteTodoEvent="$emit('deleteTodoEvent', $event)"
     />
   </div>

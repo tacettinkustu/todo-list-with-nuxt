@@ -6,9 +6,11 @@
     <Todos
       v-if="todos.length !== 0"
       :todos="todos"
+      @updateTodoEvent="showUpdateContainer($event)"
       @deleteTodoEvent="deleteTodo($event)"
     />
     <Alert v-else />
+    <UpdateTodo :class="{ 'show-update-container': showUpdate }" />
   </div>
 </template>
 
@@ -24,12 +26,20 @@ export default {
     UpdateTodo,
     Alert,
   },
+  data() {
+    return {
+      showUpdate: false,
+    }
+  },
   methods: {
     addTodo(todo) {
       this.$store.dispatch('addTodo', todo)
     },
     deleteTodo(todo) {
       this.$store.dispatch('deleteTodo', todo)
+    },
+    showUpdateContainer(todo) {
+      this.showUpdate = true
     },
   },
   computed: {
