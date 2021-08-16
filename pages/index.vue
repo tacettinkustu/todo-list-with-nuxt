@@ -11,6 +11,8 @@
     />
     <Alert v-else />
     <UpdateTodo
+      @updateTodoEvent="updateTodo($event)"
+      :todo="toUpdateTodo"
       :class="{ 'show-update-container': showUpdate }"
       @hideUpdateTodoEvent="showUpdate = false"
     />
@@ -32,6 +34,7 @@ export default {
   data() {
     return {
       showUpdate: false,
+      toUpdateTodo: null,
     }
   },
   methods: {
@@ -43,6 +46,11 @@ export default {
     },
     showUpdateContainer(todo) {
       this.showUpdate = true
+      this.toUpdateTodo = todo
+    },
+    updateTodo(updatedTodo) {
+      this.showUpdate = false
+      this.$store.dispatch('updateTodo', updatedTodo)
     },
   },
   computed: {

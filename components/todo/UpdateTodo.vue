@@ -16,6 +16,7 @@
           type="text"
           class="form-control mt-3 mb-3"
           value="This value will be changed..."
+          v-model="loadedTodo.text"
         />
         <a
           @click="$emit('hideUpdateTodoEvent', true)"
@@ -24,7 +25,7 @@
           >Cancel</a
         >
         <a
-          @click="$emit('hideUpdateTodoEvent', true)"
+          @click="$emit('updateTodoEvent', loadedTodo)"
           href="#"
           class="card-link btn btn-sm btn-outline-warning"
           >Update</a
@@ -35,7 +36,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['todo'],
+  computed: {
+    loadedTodo() {
+      return this.todo ? { ...this.todo } : { _id: null, text: '' }
+    },
+  },
+}
 </script>
 
 <style>

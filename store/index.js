@@ -42,6 +42,7 @@ const createStore = () => {
                 vuexContext.commit("deleteTodo", todo)
             },
             updateTodo(vuexContext, todo) {
+                console.log("******")
                 vuexContext.commit("updateTodo", todo)
             }
         },
