@@ -10,7 +10,7 @@ const createStore = () => {
                 state.todos = todos
             },
             addTodo(state, todo) {
-                state.push(todo)
+                state.todos.push(todo)
             },
             deleteTodo(state, todo) {
                 let todoIndex = state.todos.findIndex(t => { t.id = todo.id })

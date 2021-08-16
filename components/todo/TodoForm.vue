@@ -5,6 +5,7 @@
         v-model="todoText"
         type="text"
         class="form-control form-control-lg mr-1"
+        ref="todoTextInput"
       />
       <button @click="addTodo" class="btn btn-outline-dark">Add</button>
     </div>
@@ -21,8 +22,10 @@ export default {
   methods: {
     addTodo() {
       if (this.todoText !== '') {
-        this.$$emit('addTodoEvent', this.todoText)
+        this.$emit('addTodoEvent', this.todoText)
       }
+      this.todoText = ''
+      this.$nextTick(() => this.$refs.todoTextInput.focus())
     },
   },
 }
