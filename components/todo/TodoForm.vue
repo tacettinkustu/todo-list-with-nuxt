@@ -6,6 +6,7 @@
         type="text"
         class="form-control form-control-lg mr-1"
         ref="todoTextInput"
+        :class="{ 'is-invalid' : isInvalid }"
       />
       <button @click="addTodo" class="btn btn-outline-dark">Add</button>
     </div>
@@ -17,15 +18,19 @@ export default {
   data() {
     return {
       todoText: '',
+      isInvalid: false,
     }
   },
   methods: {
     addTodo() {
       if (this.todoText !== '') {
         this.$emit('addTodoEvent', this.todoText)
+        this.todoText = ''
+        this.$nextTick(() => this.$refs.todoTextInput.focus())
+        this.isInvalid = false
+      } else {
+        this.isInvalid = true
       }
-      this.todoText = ''
-      this.$nextTick(() => this.$refs.todoTextInput.focus())
     },
   },
 }
