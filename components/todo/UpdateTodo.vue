@@ -17,8 +17,16 @@
           class="form-control mt-3 mb-3"
           value="This value will be changed..."
         />
-        <a href="#" class="card-link btn btn-sm btn-outline-danger">Cancel</a>
-        <a href="#" class="card-link btn btn-sm btn-outline-warning"
+        <a
+          @click="$emit('hideUpdateTodoEvent', true)"
+          href="#"
+          class="card-link btn btn-sm btn-outline-danger"
+          >Cancel</a
+        >
+        <a
+          @click="$emit('hideUpdateTodoEvent', true)"
+          href="#"
+          class="card-link btn btn-sm btn-outline-warning"
           >Update</a
         >
       </div>

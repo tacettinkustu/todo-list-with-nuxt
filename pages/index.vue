@@ -10,7 +10,10 @@
       @deleteTodoEvent="deleteTodo($event)"
     />
     <Alert v-else />
-    <UpdateTodo :class="{ 'show-update-container': showUpdate }" />
+    <UpdateTodo
+      :class="{ 'show-update-container': showUpdate }"
+      @hideUpdateTodoEvent="showUpdate = false"
+    />
   </div>
 </template>
 
