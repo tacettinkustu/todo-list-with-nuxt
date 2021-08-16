@@ -16,7 +16,7 @@
       align-items-center
     "
   >
-    <p class="m-0 w-100">{{ todo }}</p>
+    <p class="m-0 w-100">{{ todo.text }}</p>
     <button class="btn btn-sm btn-outline-warning flex-shrink-1 mr-1">
       Update
     </button>

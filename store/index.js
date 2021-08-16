@@ -13,11 +13,11 @@ const createStore = () => {
                 state.todos.push(todo)
             },
             deleteTodo(state, todo) {
-                let todoIndex = state.todos.findIndex(t => { t.id = todo.id })
+                let todoIndex = state.todos.findIndex(t => { t._id = todo._id })
                 state.todos.splice(todoIndex, 1)
             },
             updateTodo(state, todo) {
-                let todoIndex = state.todos.findIndex(t => { t.id = todo.id })
+                let todoIndex = state.todos.findIndex(t => { t._id = todo._id })
                 state.todos.splice(todoIndex, 1, todo)
             }
         },
@@ -26,7 +26,12 @@ const createStore = () => {
                 vuexContext.commit("setTodos", [])
             },
             addTodo(vuexContext, todo) {
-                vuexContext.commit("addTodo", todo)
+                let newTodo = {
+                    _id: Math.random() * 10e17,
+                    text: todo
+                }
+                console.log(newTodo)
+                vuexContext.commit("addTodo", newTodo)
             },
             deleteTodo(vuexContext, todo) {
                 vuexContext.commit("deleteTodo", todo)
