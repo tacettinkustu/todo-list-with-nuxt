@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <Todo v-for="index in 10" :key="index" />
+    <Todo v-for="(todo, index) in todos" :todo="todo" :key="index" />
   </div>
 </template>
 
@@ -9,6 +9,12 @@ import Todo from './Todo.vue'
 export default {
   components: {
     Todo,
+  },
+  props: {
+    todos: {
+      type: Array,
+      required: true,
+    },
   },
 }
 </script>

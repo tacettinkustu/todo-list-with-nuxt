@@ -3,7 +3,7 @@
     <h3 class="text-center">ToDo App | Nuxt.js</h3>
     <TodoForm @addTodoEvent="addTodo($event)" />
     <h3 class="text-center mt-5 mb-3">TODO List</h3>
-    <Todos />
+    <Todos :todos="todos" />
   </div>
 </template>
 
@@ -18,9 +18,14 @@ export default {
     UpdateTodo,
   },
   methods: {
-      addTodo(todo){
-          this.$store.dispatch("addTodo", todo)
-      }
+    addTodo(todo) {
+      this.$store.dispatch('addTodo', todo)
+    },
+  },
+  computed: {
+    todos() {
+      return this.$store.getters.getTodos
+    },
   },
 }
 </script>
