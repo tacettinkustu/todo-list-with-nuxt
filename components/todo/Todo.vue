@@ -20,7 +20,7 @@
     <button class="btn btn-sm btn-outline-warning flex-shrink-1 mr-1">
       Update
     </button>
-    <button class="btn btn-sm btn-outline-danger flex-shrink-1">X</button>
+    <button @click="$emit('deleteTodoEvent', todo)" class="btn btn-sm btn-outline-danger flex-shrink-1">X</button>
   </div>
 </template>
 

@@ -13,12 +13,17 @@ const createStore = () => {
                 state.todos.push(todo)
             },
             deleteTodo(state, todo) {
-                let todoIndex = state.todos.findIndex(t => { t._id = todo._id })
-                state.todos.splice(todoIndex, 1)
+                let todoIndex = state.todos.findIndex(t => t._id == todo._id)
+                if (todoIndex > -1) {
+                    state.todos.splice(todoIndex, 1)
+                }
             },
             updateTodo(state, todo) {
-                let todoIndex = state.todos.findIndex(t => { t._id = todo._id })
-                state.todos.splice(todoIndex, 1, todo)
+                let todoIndex = state.todos.findIndex(t => t._id == todo._id)
+                if (todoIndex > -1) {
+                    state.todos.splice(todoIndex, 1, todo)
+                }
+
             }
         },
         actions: {
