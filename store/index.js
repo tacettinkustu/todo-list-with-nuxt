@@ -41,15 +41,20 @@ const createStore = () => {
             }
             vuexContext.commit('addTodo', newTodo)
           })
-          .catch((err) => console.log('error'))
+          .catch((err) => console.error(err))
       },
       deleteTodo(vuexContext, todo) {
         this.$axios.delete('/delete', { data: { todo } }).then((response) => {
           vuexContext.commit('deleteTodo', todo)
         })
       },
-      updateTodo(vuexContext, todo) {
-        vuexContext.commit('updateTodo', todo)
+      updateTodo(vuexContext, updatedTodo) {
+        this.$axios
+          .put('/update', { todo: updatedTodo })
+          .then((response) => {
+            vuexContext.commit('updateTodo', updatedTodo)
+          })
+          .catch((err) => console.error(err))
       },
     },
     getters: {

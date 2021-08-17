@@ -32,14 +32,25 @@ app.post('/save', (req, res) => {
 
 app.delete('/delete', (req, res) => {
   let todo = req.body.todo
-  TodoModel.findOneAndRemove({ _id: todo._id },()=>{
-      res.status(204).json({
-          message : "todo deleted"
-      })
+  TodoModel.findOneAndRemove({ _id: todo._id }, () => {
+    res.status(204).json({
+      message: 'todo deleted',
+    })
   })
 })
 
-app.put('/update', (req, res) => {})
+app.put('/update', (req, res) => {
+  let updatedTodo = req.body.todo
+  TodoModel.findOneAndUpdate(
+    { _id: updatedTodo._id },
+    { text: updatedTodo.text },
+    () => {
+      res.status(200).json({
+        message: 'todo updated',
+      })
+    }
+  )
+})
 
 module.exports = {
   path: '/api',
