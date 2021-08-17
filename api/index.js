@@ -30,7 +30,14 @@ app.post('/save', (req, res) => {
   })
 })
 
-app.delete('/delete', (req, res) => {})
+app.delete('/delete', (req, res) => {
+  let todo = req.body.todo
+  TodoModel.findOneAndRemove({ _id: todo._id },()=>{
+      res.status(204).json({
+          message : "todo deleted"
+      })
+  })
+})
 
 app.put('/update', (req, res) => {})
 

@@ -44,7 +44,9 @@ const createStore = () => {
           .catch((err) => console.log('error'))
       },
       deleteTodo(vuexContext, todo) {
-        vuexContext.commit('deleteTodo', todo)
+        this.$axios.delete('/delete', { data: { todo } }).then((response) => {
+          vuexContext.commit('deleteTodo', todo)
+        })
       },
       updateTodo(vuexContext, todo) {
         vuexContext.commit('updateTodo', todo)
