@@ -31,12 +31,16 @@ const createStore = () => {
                 vuexContext.commit("setTodos", [])
             },
             addTodo(vuexContext, todo) {
-                let newTodo = {
-                    _id: Math.random() * 10e17,
-                    text: todo
-                }
-                console.log(newTodo)
-                vuexContext.commit("addTodo", newTodo)
+                this.$axios.post("/save", { todoText : todo })
+                    .then(response => {
+                        console.log("******")
+                        let newTodo = {
+                            _id: Math.random() * 10e17,
+                            text: todo
+                        }
+                        vuexContext.commit("addTodo", newTodo)
+                    })
+
             },
             deleteTodo(vuexContext, todo) {
                 vuexContext.commit("deleteTodo", todo)
