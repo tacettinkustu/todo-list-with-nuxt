@@ -2,9 +2,8 @@
 
 ## The Preview Video
 
-* [Video Link](https://www.loom.com/share/c4cb31d996274df1ae831cfff198417f)
+* [Video Link](https://www.loom.com/share/4037bc9fb1814551829b7a26099aa135)
 
-## Basic UI
 ![SS](https://user-images.githubusercontent.com/51737508/129713870-6436d326-2590-418b-82db-8804378024d3.png)
 
 ## Build Setup
