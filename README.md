@@ -1,6 +1,6 @@
 # todo-list-with-nuxt
 
-## The Preview Video of Live Demo
+## The Preview Video
 
 [Video Link](https://www.loom.com/share/c4cb31d996274df1ae831cfff198417f)
 
