@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 
 mongoose.connect(
-  'mongodb+srv://tacettinkustu:123456Abc@todoapi.eohdf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+  'mongodb+srv://username:password@todoapi.eohdf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
   }
